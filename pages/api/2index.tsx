@@ -96,7 +96,7 @@ export default function Home() {
               </div>
 
               <p className="mt-6 text-xs text-gray-300">
-                Built for India's legal reality — tackling 5 crore+ pending cases,
+                Built for India&apos;s legal reality — tackling 5 crore+ pending cases,
                 69,000+ overlapping statutes, and reducing litigation costs that
                 currently cost the economy ~INR 300 billion annually.
               </p>

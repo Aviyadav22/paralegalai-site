@@ -4,6 +4,7 @@ import Link from "next/link";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { FileText, Search, Folder, MessageCircle } from "lucide-react";
+import Image from "next/image";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -50,7 +51,7 @@ export default function Home() {
 
   <div className="relative z-10 max-w-4xl">
     {/* Logo */}
-    <img
+    <Image
       src="/logo.png"
       alt="Paralegal AI Logo"
       className="mx-auto w-20 h-20 mb-6 opacity-90"
