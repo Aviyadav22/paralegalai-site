@@ -1,0 +1,14 @@
+[
+  {
+    "id": "doc-1",
+    "title": "Delhi High Court \u2014 Case A (Mock)",
+    "url": "https://example.com/case-a",
+    "text": "[Mock full text paragraph 1]\\n[Mock full text paragraph 2]\\n[Mock full text paragraph 3]"
+  },
+  {
+    "id": "doc-2",
+    "title": "Supreme Court \u2014 Case X (Mock)",
+    "url": "https://example.com/case-x",
+    "text": "[Mock full text]"
+  }
+]
