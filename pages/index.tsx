@@ -4,10 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { FileText, Search, Folder, MessageCircle } from "lucide-react";
+import { useRef, useEffect, useState } from "react";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { FileText, Search, Folder, MessageCircle, Play } from "lucide-react";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 
 function AccordionItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
@@ -38,89 +38,109 @@ function AccordionItem({ question, answer }: { question: string; answer: string 
   );
 }
 
-
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [showVideo, setShowVideo] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+
+  // Scroll-based scaling
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0, 0.1], [0.8, 0.9]);
+
+  // Handle play/pause on viewport
+  useEffect(() => {
+    if (!videoRef.current) return;
+
+    if (isInView && showVideo) {
+      videoRef.current.play().catch(() => {});
+    } else {
+      videoRef.current.pause();
+    }
+  }, [isInView, showVideo]);
+
   return (
     <div>
       <Header />
       <main>
-        {/* 🌟 Classical Hero */}
-<section className="relative min-h-screen flex flex-col items-center justify-center text-center bg-[#f8f5f0] text-[#1f1d1b] px-6">
-  {/* Decorative subtle gradient */}
-  <div className="absolute inset-0 bg-gradient-to-b from-[#f8f5f0] to-[#ede9e4]" />
+        {/* 🌟 Hero Section */}
+        {/* 🌟 Professional Hero Section */}
+<section className="relative min-h-screen flex flex-col items-center justify-center text-center 
+  bg-gradient-to-b from-[#faf9f7] to-[#f4f4f2] text-[#1f1d1b] 
+  px-4 sm:px-6 pt-16 sm:pt-32 pb-16 sm:pb-24 overflow-hidden">
 
-  <div className="relative z-10 max-w-4xl">
-    {/* Logo */}
-    <img
-      src="/logo.png"
-      alt="Paralegal AI Logo"
-      className="mx-auto w-20 h-20 mb-6 opacity-90"
-    />
-
+  <div className="relative z-10 max-w-5xl mx-auto">
     {/* Headline */}
-    <motion.h1
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-      className="text-5xl md:text-6xl font-serif font-bold tracking-tight text-[#1f1d1b]"
-      style={{ fontFamily: "Merriweather, serif" }}
-    >
-      Paralegal AI
-    </motion.h1>
+    <h1 className="text-4xl sm:text-5xl md:text-7xl font-serif tracking-tight text-[#1f1d1b] leading-tight">
+  {/* Mobile (stacked) */}
+  <span className="block sm:hidden">
+    <span className="font-semibold">The AI-Powered</span>
+  </span>
+  <span className="block sm:hidden font-extrabold text-[#c5a880]">
+    Paralegal
+  </span>
+
+  {/* Desktop (inline) */}
+  <span className="hidden sm:inline">
+    <span className="font-semibold">The AI-Powered</span>{" "}
+    <span className="font-extrabold text-[#c5a880]">Paralegal</span>
+  </span>
+</h1>
+
 
     {/* Subheadline */}
-    <motion.p
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 0.3 }}
-      className="mt-4 text-lg md:text-xl text-[#4b2e2e] font-light"
-    >
-      The Comprehensive, Trustworthy AI Paralegal <br /> 
-      Rooted in Law, Inspired by Roman Order
-    </motion.p>
+    <p className="mt-6 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+      Save hours of case research. Paralegal AI delivers precise judgments and case laws in seconds — trusted by legal professionals across India.
+    </p>
 
     {/* CTA Buttons */}
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1, delay: 0.6 }}
-      className="mt-10 flex flex-col sm:flex-row gap-4 justify-center"
-    >
+    <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
       <Link
         href="/signup"
-        className="bg-[#1f1d1b] text-[#f8f5f0] px-8 py-4 rounded-lg font-semibold text-lg shadow-lg hover:bg-[#4b2e2e] transition"
+        className="bg-[#1f1d1b] text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-md hover:shadow-lg transition"
       >
-        Try Freemium
+        Start Free
       </Link>
       <Link
         href="/demo"
-        className="border border-[#1f1d1b] text-[#1f1d1b] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#c5a880] hover:text-white transition"
+        className="border border-[#1f1d1b] text-[#1f1d1b] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#1f1d1b] hover:text-white shadow-sm transition"
       >
-        View Demo
+        Book a Demo
       </Link>
-    </motion.div>
+    </div>
 
- 
-
-            {/* Right product mockup */}
-<motion.div
-  initial={{ opacity: 0, scale: 0.95 }}
-  animate={{ opacity: 1, scale: 1 }}
-  transition={{ duration: 1, delay: 0.3 }}
-  className="relative"
->
-  <div className="rounded-xl bg-[#f8f5f0] border border-[#d6d3d1] p-6 shadow-xl">
-    <Image
-      src="/hero-mockup.png"
-      alt="Paralegal AI Product Mockup"
-      width={600}
-      height={400}
-      className="rounded-lg shadow-lg"
-    />
+    
   </div>
-</motion.div>
-</div>
+
+  {/* Product demo mockup / video */}
+    {/* Product demo mockup / video with scroll scaling */}
+<motion.div
+  className="relative mt-6 sm:mt-1 w-full max-w-5xl mx-auto px-2 sm:px-4"
+  style={{ scale }} // 👈 scroll-based scaling applied here
+>
+  <video
+    src="/hero-demo.mp4" // 👉 replace with your demo video in /public
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="w-full h-auto rounded-xl shadow-2xl object-cover border border-gray-200 
+               max-w-[95%] sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto"
+
+
+    />
+    {/* Glow effect */}
+    <div className="absolute -inset-10 bg-gradient-to-r from-[#C5A880]/20 to-[#111827]/20 blur-3xl rounded-3xl -z-10"></div>
+  </motion.div>
+
+
+  {/* Social proof line */}
+  <p className="mt-8 text-sm text-gray-500">
+    Trusted by law students & small firms across India ⚖️
+  </p>
 </section>
+
+
+
 
 {/* ✨ Features Section */}
 <section id="features" className="relative bg-[#f8f5f0] py-20">
