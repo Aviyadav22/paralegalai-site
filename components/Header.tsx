@@ -32,17 +32,24 @@ export default function Header() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-8">
           <Link
+            href="/"
+            className="group relative text-[#1f1d1b] font-medium transition"
+          >
+            Home
+            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+          <Link
+            href="/pricing"
+            className="group relative text-[#1f1d1b] font-medium transition"
+          >
+            Pricing
+            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
+          </Link>
+          <Link
             href="#features"
             className="group relative text-[#1f1d1b] font-medium transition"
           >
             Features
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link
-            href="#pricing"
-            className="group relative text-[#1f1d1b] font-medium transition"
-          >
-            Pricing
             <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link
@@ -52,30 +59,23 @@ export default function Header() {
             FAQ
             <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
           </Link>
-          {/* ✅ FIXED: Link to actual Contact page */}
-          <Link
-            href="/contact"
-            className="group relative text-[#1f1d1b] font-medium transition"
-          >
-            Contact
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
-          </Link>
         </nav>
 
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
           <Link
-            href="/login"
+            href="https://www.linkedin.com/company/paralegalai-legalresearch"
+            target="_blank"
             className="group relative text-[#1f1d1b] font-medium transition"
           >
             Sign In
             <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
           </Link>
           <Link
-            href="/signup"
+            href="/contact"
             className="bg-[#1f1d1b] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#4b2e2e] transition"
           >
-            Get Started
+            Contact
           </Link>
         </div>
 
@@ -100,18 +100,25 @@ export default function Header() {
           >
             <nav className="flex flex-col p-4 space-y-4">
               <Link
+                href="/"
+                className="text-[#1f1d1b] hover:text-[#4b2e2e] font-medium transition"
+                onClick={() => setMobileOpen(false)}
+              >
+                Home
+              </Link>
+              <Link
+                href="/pricing"
+                className="text-[#1f1d1b] hover:text-[#4b2e2e] font-medium transition"
+                onClick={() => setMobileOpen(false)}
+              >
+                Pricing
+              </Link>
+              <Link
                 href="#features"
                 className="text-[#1f1d1b] hover:text-[#4b2e2e] font-medium transition"
                 onClick={() => setMobileOpen(false)}
               >
                 Features
-              </Link>
-              <Link
-                href="#pricing"
-                className="text-[#1f1d1b] hover:text-[#4b2e2e] font-medium transition"
-                onClick={() => setMobileOpen(false)}
-              >
-                Pricing
               </Link>
               <Link
                 href="#faq"
@@ -120,28 +127,21 @@ export default function Header() {
               >
                 FAQ
               </Link>
-              {/* ✅ FIXED: Contact page link */}
-              <Link
-                href="/contact"
-                className="text-[#1f1d1b] hover:text-[#4b2e2e] font-medium transition"
-                onClick={() => setMobileOpen(false)}
-              >
-                Contact
-              </Link>
               <hr className="border-[#d6d3d1]" />
               <Link
-                href="/login"
+                href="https://www.linkedin.com/company/paralegalai-legalresearch"
+                target="_blank"
                 className="text-[#1f1d1b] hover:text-[#4b2e2e] font-medium transition"
                 onClick={() => setMobileOpen(false)}
               >
                 Sign In
               </Link>
               <Link
-                href="/signup"
+                href="/contact"
                 className="bg-[#1f1d1b] text-white px-5 py-2 rounded-lg font-semibold hover:bg-[#4b2e2e] transition"
                 onClick={() => setMobileOpen(false)}
               >
-                Get Started
+                Contact
               </Link>
             </nav>
           </motion.div>
