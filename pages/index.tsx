@@ -134,7 +134,7 @@ export default function Home() {
 
 
 
-   {/* Trusted by — individual names (no boxed container)*/}
+   Trusted by — individual names (no boxed container)
 
 <section className="relative w-full mt-12">
   <div className="max-w-6xl mx-auto px-6 text-center">
@@ -146,7 +146,7 @@ export default function Home() {
     </h2>
 
     {/* names displayed like logos: centered, spaced, wrap on small screens */}
-    <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+    {/* <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
       {[
         "Adv. Prashant Singh, Delhi",
         "MAK Law Firm, Dehradun",
@@ -163,7 +163,7 @@ export default function Home() {
           </span>
         </div>
       ))}
-    </div>
+    </div> */}
   </div>
 </section>
 
