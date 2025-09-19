@@ -134,16 +134,16 @@ export default function Home() {
 
 
 
-   Trusted by — individual names (no boxed container)
+   {/* Trusted by — individual names (no boxed container) */}
 
-<section className="relative w-full mt-12">
+{/* <section className="relative w-full mt-12">
   <div className="max-w-6xl mx-auto px-6 text-center">
     <h2
       className="text-2xl md:text-3xl font-serif font-bold text-[#1f1d1b] mb-8"
       style={{ fontFamily: "Merriweather, serif" }}
     >
       Trusted by
-    </h2>
+    </h2> */}
 
     {/* names displayed like logos: centered, spaced, wrap on small screens */}
     {/* <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
@@ -164,8 +164,8 @@ export default function Home() {
         </div>
       ))}
     </div> */}
-  </div>
-</section>
+  {/* </div>
+</section> */}
 
 
 
@@ -260,94 +260,15 @@ export default function Home() {
           Client Communication
         </h3>
         <p className="text-sm text-[#4b2e2e] mt-2 leading-relaxed">
-          Intelligent intake chatbots for faster onboarding and triage.
+          Intelligent intake chatbots for faster onboarding.
         </p>
       </motion.div>
     </div>
   </div>
-</section>
-
 
 
         
-        {/* ✨ Persona / Use Cases Section */}
-<section id="personas" className="relative bg-neutralbg py-24">
-  <div className="max-w-6xl mx-auto px-4">
-    <motion.h2
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
-      className="text-3xl font-bold text-primary text-center"
-    >
-      Built for Every Legal Professional
-    </motion.h2>
-    <p className="mt-4 text-gray-600 text-center max-w-2xl mx-auto">
-      Whether you are just starting out or managing a corporate legal team, Paralegal AI adapts to your workflow.
-    </p>
-
-    <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      {/* Persona 1 */}
-      <motion.div
-        whileHover={{ scale: 1.05, y: -6 }}
-        transition={{ type: "spring", stiffness: 200 }}
-        className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 flex flex-col items-center text-center"
-      >
-        <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-          <span className="text-2xl">⚖️</span>
-        </div>
-        <h3 className="text-lg font-semibold text-primary">Solo Litigator</h3>
-        <p className="mt-2 text-sm text-gray-600">
-          Affordable parity — faster drafting & research so you can focus on strategy.
-        </p>
-      </motion.div>
-
-      {/* Persona 2 */}
-      <motion.div
-        whileHover={{ scale: 1.05, y: -6 }}
-        transition={{ type: "spring", stiffness: 200 }}
-        className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 flex flex-col items-center text-center"
-      >
-        <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-          <span className="text-2xl">📑</span>
-        </div>
-        <h3 className="text-lg font-semibold text-primary">Firm Associate</h3>
-        <p className="mt-2 text-sm text-gray-600">
-          Multiply billable efficiency with collaborative workspaces and AI-powered drafting.
-        </p>
-      </motion.div>
-
-      {/* Persona 3 */}
-      <motion.div
-        whileHover={{ scale: 1.05, y: -6 }}
-        transition={{ type: "spring", stiffness: 200 }}
-        className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 flex flex-col items-center text-center"
-      >
-        <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-          <span className="text-2xl">🏢</span>
-        </div>
-        <h3 className="text-lg font-semibold text-primary">In-house Counsel</h3>
-        <p className="mt-2 text-sm text-gray-600">
-          Reduce contract risk and automate continuous compliance across regulations.
-        </p>
-      </motion.div>
-
-      {/* Persona 4 */}
-      <motion.div
-        whileHover={{ scale: 1.05, y: -6 }}
-        transition={{ type: "spring", stiffness: 200 }}
-        className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-200 flex flex-col items-center text-center"
-      >
-        <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mb-4">
-          <span className="text-2xl">🎓</span>
-        </div>
-        <h3 className="text-lg font-semibold text-primary">Law Student</h3>
-        <p className="mt-2 text-sm text-gray-600">
-          Learn practical research skills and drafting on an industry-grade platform.
-        </p>
-      </motion.div>
-    </div>
-
+        
     {/* CTA buttons
     <div className="mt-12 flex justify-center gap-4">
       <Link
@@ -362,7 +283,7 @@ export default function Home() {
       >
         Contact Sales
       </Link> */}
-  </div>
+
 </section>
 {/* ✨ FAQ Section */}
 <section id="faq" className="relative bg-white py-24">
@@ -407,8 +328,7 @@ export default function Home() {
       ))}
     </div>
   </div>
-</section>
-          {/* ✨ Testimonials Carousel */}
+          {/* ✨ Testimonials Carousel
 <section
   id="testimonials"
   className="relative bg-gradient-to-b from-neutralbg via-white to-neutralbg py-24 overflow-hidden"
@@ -426,9 +346,9 @@ export default function Home() {
     <p className="mt-2 text-gray-600">
       Trusted by practitioners, firms, and students
     </p>
-  </div>
+  </div> */}
 
-  {/* Carousel */}
+  {/* Carousel
   <div className="relative mt-16 overflow-hidden">
     <motion.div
       className="flex"
@@ -485,7 +405,7 @@ export default function Home() {
         </div>
       ))}
     </motion.div>
-  </div>
+  </div> */}
 </section>
       
 
