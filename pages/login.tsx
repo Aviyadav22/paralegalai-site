@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { signIn, getSession } from "next-auth/react"
 import { useRouter } from "next/router"
+import Link from "next/link"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { Eye, EyeOff, Mail, Lock, AlertCircle } from "lucide-react"
@@ -224,10 +225,10 @@ export default function Login() {
 
               <div className="mt-8 text-center">
                 <p className="text-sm text-gray-600">
-                  Don't have an account?{" "}
-                  <a href="/register" className="font-medium text-[#D4AF37] hover:text-[#B8941F]">
+                  Don&apos;t have an account?{" "}
+                  <Link href="/register" className="font-medium text-[#D4AF37] hover:text-[#B8941F]">
                     Sign up here
-                  </a>
+                  </Link>
                 </p>
               </div>
 

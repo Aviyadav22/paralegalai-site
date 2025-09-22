@@ -1,5 +1,6 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import Link from "next/link"
 import { CheckCircle, Search, FileText, Shield, Clock, Users, BarChart, Zap } from "lucide-react"
 
 export default function Features() {
@@ -84,21 +85,21 @@ export default function Features() {
           </h1>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
             Transform your legal practice with AI-powered tools designed specifically for Indian law. 
-            From research to billing, we've got you covered.
+            From research to billing, we&apos;ve got you covered.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="/demo"
               className="bg-white text-[#1f1d1b] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
             >
               Try Demo
-            </a>
-            <a
+            </Link>
+            <Link
               href="/pricing"
               className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1f1d1b] transition"
             >
               View Pricing
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -151,18 +152,18 @@ export default function Features() {
             Join thousands of legal professionals who trust Paralegal AI for their daily operations.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="/contact"
               className="bg-white text-[#1f1d1b] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
             >
               Get Started Today
-            </a>
-            <a
+            </Link>
+            <Link
               href="/demo"
               className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1f1d1b] transition"
             >
               Schedule Demo
-            </a>
+            </Link>
           </div>
         </div>
       </section>

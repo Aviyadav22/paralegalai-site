@@ -1,5 +1,6 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import Link from "next/link"
 import { useState } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
 
@@ -115,18 +116,18 @@ export default function FAQ() {
             Our team is here to help. Contact us for personalized assistance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="/contact"
               className="bg-white text-[#1f1d1b] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
             >
               Contact Support
-            </a>
-            <a
+            </Link>
+            <Link
               href="/demo"
               className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1f1d1b] transition"
             >
               Schedule Demo
-            </a>
+            </Link>
           </div>
         </div>
       </section>

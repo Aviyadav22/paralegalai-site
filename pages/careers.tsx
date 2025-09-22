@@ -1,5 +1,6 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import Link from "next/link"
 import { Users, Target, Lightbulb, ArrowRight, CheckCircle, Linkedin, Mail } from "lucide-react"
 
 export default function Careers() {
@@ -76,7 +77,7 @@ export default function Careers() {
               Our Mission
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              Our work is at the intersection of law, artificial intelligence, and design, and we're building 
+              Our work is at the intersection of law, artificial intelligence, and design, and we&apos;re building 
               solutions that will redefine the future of legal practice in India and beyond.
             </p>
             <div className="bg-[#f8f5f0] p-6 rounded-lg">
@@ -92,11 +93,11 @@ export default function Careers() {
         </div>
       </section>
 
-      {/* Who We're Looking For */}
+      {/* Who We&apos;re Looking For */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-serif font-bold text-[#1f1d1b] mb-8 text-center">
-            Who We're Looking For
+            Who We&apos;re Looking For
           </h2>
           <div className="bg-[#f8f5f0] rounded-lg p-8 mb-8">
             <p className="text-lg text-gray-700 mb-6">
@@ -114,7 +115,7 @@ export default function Careers() {
             ))}
             </ul>
             <p className="text-lg text-gray-700 mt-6 font-semibold">
-              … then we'd love to hear from you.
+              … then we&apos;d love to hear from you.
             </p>
           </div>
         </div>
@@ -183,11 +184,11 @@ export default function Careers() {
           <div className="mt-12 text-center">
             <div className="bg-[#1f1d1b] rounded-lg p-8 text-white">
               <h3 className="text-xl font-semibold mb-4">
-                Don't See Your Role?
+                Don&apos;t See Your Role?
               </h3>
               <p className="text-gray-300 mb-6">
-                Even if you don't see a specific role listed, we encourage you to connect — 
-                if you bring passion and skills, we'll find a way to work together.
+                Even if you don&apos;t see a specific role listed, we encourage you to connect — 
+                if you bring passion and skills, we&apos;ll find a way to work together.
               </p>
             </div>
           </div>
@@ -201,7 +202,7 @@ export default function Careers() {
             Be Part of the Journey
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            At Paralegal AI, careers aren't just jobs. They're opportunities to help shape the future of legal research.
+            At Paralegal AI, careers aren&apos;t just jobs. They&apos;re opportunities to help shape the future of legal research.
           </p>
           
           <div className="bg-white rounded-lg shadow-lg p-8">
@@ -209,7 +210,7 @@ export default function Careers() {
               📌 Interested in joining us?
             </h3>
             <p className="text-lg text-gray-600 mb-8">
-              Connect with us and let's start the conversation.
+              Connect with us and let&apos;s start the conversation.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -222,13 +223,13 @@ export default function Careers() {
                 <Linkedin className="w-5 h-5" />
                 Connect on LinkedIn
               </a>
-              <a
+              <Link
                 href="/contact"
                 className="bg-white text-[#1f1d1b] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition flex items-center justify-center gap-2"
               >
                 <Mail className="w-5 h-5" />
                 Send Us a Message
-              </a>
+              </Link>
             </div>
           </div>
         </div>

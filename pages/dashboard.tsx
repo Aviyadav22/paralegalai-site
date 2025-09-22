@@ -19,7 +19,7 @@ export default function Dashboard() {
               Welcome to your Dashboard
             </h1>
             <p className="text-[#6b7280]">
-              Hello, {session?.user?.name}! You're successfully signed in.
+              Hello, {session?.user?.name}! You&apos;re successfully signed in.
             </p>
           </div>
 

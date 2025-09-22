@@ -31,7 +31,7 @@ export default function TermsOfService() {
             
             <h2 className="text-xl font-semibold text-[#1f1d1b] mb-4">Disclaimer</h2>
             <p className="text-[#6b7280] mb-6">
-              The materials on Paralegal AI are provided on an 'as is' basis. Paralegal AI makes 
+              The materials on Paralegal AI are provided on an &apos;as is&apos; basis. Paralegal AI makes 
               no warranties, expressed or implied, and hereby disclaims and negates all other 
               warranties including without limitation, implied warranties or conditions of 
               merchantability, fitness for a particular purpose, or non-infringement of 

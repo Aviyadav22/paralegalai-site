@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { signIn } from "next-auth/react"
 import { useRouter } from "next/router"
+import Link from "next/link"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import { Eye, EyeOff, Mail, Lock, User, AlertCircle, CheckCircle } from "lucide-react"
@@ -290,13 +291,13 @@ export default function Register() {
                   />
                   <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
                     I agree to the{" "}
-                    <a href="/terms" className="text-[#D4AF37] hover:text-[#B8941F]">
+                    <Link href="/terms" className="text-[#D4AF37] hover:text-[#B8941F]">
                       Terms of Service
-                    </a>{" "}
+                    </Link>{" "}
                     and{" "}
-                    <a href="/privacy" className="text-[#D4AF37] hover:text-[#B8941F]">
+                    <Link href="/privacy" className="text-[#D4AF37] hover:text-[#B8941F]">
                       Privacy Policy
-                    </a>
+                    </Link>
                   </label>
                 </div>
 
@@ -312,9 +313,9 @@ export default function Register() {
               <div className="mt-8 text-center">
                 <p className="text-sm text-gray-600">
                   Already have an account?{" "}
-                  <a href="/login" className="font-medium text-[#D4AF37] hover:text-[#B8941F]">
+                  <Link href="/login" className="font-medium text-[#D4AF37] hover:text-[#B8941F]">
                     Sign in here
-                  </a>
+                  </Link>
                 </p>
               </div>
 

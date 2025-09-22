@@ -1,5 +1,6 @@
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import Link from "next/link"
 import { Target, BookOpen, Users, Lightbulb, ArrowRight, CheckCircle } from "lucide-react"
 
 export default function About() {
@@ -86,7 +87,7 @@ export default function About() {
           
           <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
             <p>
-              Paralegal AI was founded with a clear recognition of one of the legal profession's most persistent 
+              Paralegal AI was founded with a clear recognition of one of the legal profession&apos;s most persistent 
               challenges: the disproportionate amount of time and effort spent searching for precedents, judgments, 
               and case laws.
             </p>
@@ -217,21 +218,21 @@ export default function About() {
             Join Us in Transforming Legal Practice
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Be part of the movement that's revolutionizing how legal research is conducted in India.
+            Be part of the movement that&apos;s revolutionizing how legal research is conducted in India.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Link
               href="/demo"
               className="bg-white text-[#1f1d1b] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
             >
               Try Our Demo
-            </a>
-            <a
+            </Link>
+            <Link
               href="/contact"
               className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-[#1f1d1b] transition"
             >
               Get in Touch
-            </a>
+            </Link>
           </div>
         </div>
       </section>
