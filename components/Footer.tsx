@@ -40,17 +40,42 @@ export default function Footer() {
             Product
           </h4>
           <ul className="space-y-2">
-            {["Features", "Pricing", "FAQ"].map((label) => (
-              <li key={label}>
-                <Link
-                  href={`#${label.toLowerCase()}`}
-                  className="group relative text-[#1f1d1b] font-medium transition"
-                >
-                  {label}
-                  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              </li>
-            ))}
+            <li>
+              <Link
+                href="/features"
+                className="group relative text-[#1f1d1b] font-medium transition"
+              >
+                Features
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/pricing"
+                className="group relative text-[#1f1d1b] font-medium transition"
+              >
+                Pricing
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/demo"
+                className="group relative text-[#1f1d1b] font-medium transition"
+              >
+                Demo
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/faq"
+                className="group relative text-[#1f1d1b] font-medium transition"
+              >
+                FAQ
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -63,21 +88,42 @@ export default function Footer() {
             Company
           </h4>
           <ul className="space-y-2">
-            {[
-              { label: "About Us", href: "/about" },
-              { label: "Careers", href: "/careers" },
-              { label: "Contact", href: "/contact" },
-            ].map((item) => (
-              <li key={item.label}>
-                <Link
-                  href={item.href}
-                  className="group relative text-[#1f1d1b] font-medium transition"
-                >
-                  {item.label}
-                  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              </li>
-            ))}
+            <li>
+              <Link
+                href="/about"
+                className="group relative text-[#1f1d1b] font-medium transition"
+              >
+                About Us
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/careers"
+                className="group relative text-[#1f1d1b] font-medium transition"
+              >
+                Careers
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact"
+                className="group relative text-[#1f1d1b] font-medium transition"
+              >
+                Contact
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/demo"
+                className="group relative text-[#1f1d1b] font-medium transition"
+              >
+                Demo
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -114,7 +160,9 @@ export default function Footer() {
         <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex gap-6">
             <Link
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/company/paralegalai-legalresearch"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-[#1f1d1b] hover:text-[#4b2e2e] transition"
             >
               <Linkedin size={20} />

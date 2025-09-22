@@ -95,17 +95,17 @@ export default function Home() {
     {/* CTA Buttons */}
     <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
       <Link
-        href="/contact"
+        href="/demo"
         className="bg-[#1f1d1b] text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-md hover:shadow-lg transition"
       >
-        Start Free
+        Try Demo
       </Link>
-      {/* <Link
-        href="/demo"
+      <Link
+        href="/pricing"
         className="border border-[#1f1d1b] text-[#1f1d1b] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#1f1d1b] hover:text-white shadow-sm transition"
       >
-        Book a Demo
-      </Link> */}
+        View Pricing
+      </Link>
     </div>
 
     

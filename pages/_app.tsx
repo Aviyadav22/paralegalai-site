@@ -1,10 +1,11 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import { SessionProvider } from 'next-auth/react'
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <>
+    <SessionProvider session={session}>
       <Head>
         <title>Paralegal AI — AI Paralegal for Indian Law | Semantic Legal Research & Drafting</title>
         <meta name="description" content="Paralegal AI augments lawyers with RAG-grounded legal research, AI drafting, clause review, and compliance monitoring — built for the complexities of Indian law. Try the freemium tier or book an enterprise demo." />
@@ -23,6 +24,6 @@ export default function App({ Component, pageProps }: AppProps) {
         })}} />
       </Head>
       <Component {...pageProps} />
-    </>
+    </SessionProvider>
   )
 }
