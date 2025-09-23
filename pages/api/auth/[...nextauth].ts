@@ -8,7 +8,6 @@ import bcrypt from "bcryptjs"
 const prisma = new PrismaClient()
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma),
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -71,13 +70,39 @@ export const authOptions: NextAuthOptions = {
       }
       return token
     },
+    async signIn({ user, account, profile }) {
+      if (account?.provider === "google") {
+        try {
+          // Check if user exists in database
+          const existingUser = await prisma.user.findUnique({
+            where: { email: user.email! }
+          })
+
+          if (!existingUser) {
+            // Create new user if they don't exist
+            await prisma.user.create({
+              data: {
+                email: user.email!,
+                name: user.name,
+                image: user.image,
+                role: "user"
+              }
+            })
+          }
+        } catch (error) {
+          console.error("Error in signIn callback:", error)
+          return false
+        }
+      }
+      return true
+    },
   },
   pages: {
     signIn: "/login",
     error: "/auth/error",
   },
   session: {
-    strategy: "database",
+    strategy: "jwt",
   },
   secret: process.env.NEXTAUTH_SECRET,
 }

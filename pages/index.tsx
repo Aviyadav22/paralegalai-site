@@ -13,13 +13,13 @@ function AccordionItem({ question, answer }: { question: string; answer: string 
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="border border-gray-200 rounded-lg overflow-hidden">
+    <div className="border border-[#d6d3d1] rounded-lg overflow-hidden bg-white">
       <button
         onClick={() => setOpen(!open)}
-        className="w-full flex justify-between items-center px-4 py-3 text-left text-sm font-medium text-primary hover:bg-neutralbg"
+        className="w-full flex justify-between items-center px-4 py-3 text-left text-sm font-medium text-[#1f1d1b] hover:bg-[#f8f5f0] transition-colors"
       >
         {question}
-        <span className="ml-2 text-accent">{open ? "−" : "+"}</span>
+        <span className="ml-2 text-[#c5a880] font-bold">{open ? "−" : "+"}</span>
       </button>
       <AnimatePresence initial={false}>
         {open && (
@@ -28,7 +28,7 @@ function AccordionItem({ question, answer }: { question: string; answer: string 
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="px-4 pb-3 text-sm text-gray-600"
+            className="px-4 pb-3 text-sm text-[#4b2e2e]"
           >
             {answer}
           </motion.div>
@@ -92,19 +92,13 @@ export default function Home() {
       Save hours of case research. Paralegal AI delivers precise judgments and case laws in seconds — trusted by legal professionals across India.
     </p>
 
-    {/* CTA Buttons */}
-    <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+    {/* CTA Button */}
+    <div className="mt-10 flex justify-center">
       <Link
-        href="/demo"
-        className="bg-[#1f1d1b] text-white px-8 py-4 rounded-lg font-semibold text-lg shadow-md hover:shadow-lg transition"
+        href="/login"
+        className="bg-[#1f1d1b] text-white px-10 py-4 rounded-lg font-semibold text-lg shadow-lg hover:shadow-xl hover:bg-[#4b2e2e] transition-all duration-300 transform hover:scale-105"
       >
-        Try Demo
-      </Link>
-      <Link
-        href="/pricing"
-        className="border border-[#1f1d1b] text-[#1f1d1b] px-8 py-4 rounded-lg font-semibold text-lg hover:bg-[#1f1d1b] hover:text-white shadow-sm transition"
-      >
-        View Pricing
+        Try Now
       </Link>
     </div>
 
@@ -118,15 +112,15 @@ export default function Home() {
   style={{ scale }} // 👈 scroll-based scaling applied here
 >
   <video
-    src="/hero-demo.mp4" // 👉 replace with your demo video in /public
+    src="/hero-demo.mp4"
     autoPlay
     muted
     loop
     playsInline
+    preload="metadata"
+    poster="/hero-poster.png"
     className="w-full h-auto rounded-xl shadow-2xl object-cover border border-gray-200 
                max-w-[95%] sm:max-w-3xl md:max-w-4xl lg:max-w-5xl mx-auto"
-
-
     />
     {/* Glow effect */}
     <div className="absolute -inset-10 bg-gradient-to-r from-[#C5A880]/20 to-[#111827]/20 blur-3xl rounded-3xl -z-10"></div>
@@ -286,18 +280,19 @@ export default function Home() {
 
 </section>
 {/* ✨ FAQ Section */}
-<section id="faq" className="relative bg-white py-24">
+<section id="faq" className="relative bg-[#f8f5f0] py-24">
   <div className="max-w-3xl mx-auto px-4">
     <motion.h2
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="text-3xl font-bold text-primary text-center"
+      className="text-3xl font-serif font-bold text-[#1f1d1b] text-center"
+      style={{ fontFamily: "Merriweather, serif" }}
     >
       Frequently Asked Questions
     </motion.h2>
-    <p className="mt-4 text-gray-600 text-center">
+    <p className="mt-4 text-[#4b2e2e] text-center">
       Clear answers about Paralegal AI and how it supports legal professionals.
     </p>
 

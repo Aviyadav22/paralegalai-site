@@ -1,126 +1,191 @@
-"use client";
-
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import Header from "../components/Header"
+import Footer from "../components/Footer"
+import Link from "next/link"
+import { useSession } from "next-auth/react"
+import { 
+  Check, 
+  Star,
+  ArrowRight,
+  Shield,
+  Zap,
+  Users
+} from "lucide-react"
 
 export default function Pricing() {
+  const { data: session, status } = useSession()
+  const plans = [
+    {
+      name: "Free",
+      price: 0,
+      period: "month",
+      description: "Perfect for getting started",
+      features: [
+        "10 document analyses per month",
+        "Basic legal research tools",
+        "Email support",
+        "Standard templates"
+      ],
+      current: false,
+      cta: session ? "Current Plan" : "Get Started",
+      popular: false,
+      href: session ? "#" : "/register"
+    },
+    {
+      name: "Professional",
+      price: 29,
+      period: "month",
+      description: "For individual lawyers and small firms",
+      features: [
+        "100 document analyses per month",
+        "Advanced AI research tools",
+        "Priority support",
+        "Custom templates",
+        "API access",
+        "Advanced analytics"
+      ],
+      current: false,
+      cta: session ? "Coming Soon" : "Sign In to Upgrade",
+      popular: true,
+      href: session ? "/account?tab=billing" : "/login?callbackUrl=/pricing"
+    },
+    {
+      name: "Enterprise",
+      price: 99,
+      period: "month",
+      description: "For large law firms and organizations",
+      features: [
+        "Unlimited document analyses",
+        "Custom AI models",
+        "24/7 dedicated support",
+        "White-label options",
+        "Custom integrations",
+        "Advanced security"
+      ],
+      current: false,
+      cta: "Contact Sales",
+      popular: false,
+      href: "/contact"
+    }
+  ]
+
+  const handlePlanClick = (plan: any) => {
+    if (plan.name === "Free" && !session) {
+      // Redirect to register for free plan
+      window.location.href = "/register"
+    } else if (plan.name === "Professional" && !session) {
+      // Redirect to login with callback
+      window.location.href = "/login?callbackUrl=/pricing"
+    } else if (plan.name === "Professional" && session) {
+      // Show coming soon message
+      alert("Payment gateway integration coming soon! Please contact us for now.")
+    } else if (plan.name === "Enterprise") {
+      // Redirect to contact
+      window.location.href = "/contact"
+    }
+  }
+
   return (
-    <div>
+    <div className="min-h-screen bg-[#f8f5f0]">
       <Header />
-      <main className="max-w-6xl mx-auto px-4 py-12">
-        {/* ✨ Pricing Section */}
-        <section id="pricing" className="relative bg-[#f8f5f0] py-12">
-          <div className="max-w-6xl mx-auto px-4 text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="text-3xl font-serif font-bold text-[#1f1d1b]"
-              style={{ fontFamily: "Merriweather, serif" }}
-            >
-              Pricing
-            </motion.h2>
-            <p className="mt-4 text-[#4b2e2e] max-w-2xl mx-auto">
-              Start free, scale as you grow. Flexible plans for students, solo practitioners, and enterprises.
-            </p>
-
-            {/* Pricing grid */}
-            <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Student */}
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-                className="relative bg-[#ede9e4] p-8 rounded-xl shadow-md border border-[#d6d3d1]"
-              >
-                <h3
-                  className="text-lg font-serif font-semibold text-[#1f1d1b]"
-                  style={{ fontFamily: "Merriweather, serif" }}
-                >
-                  Student
-                </h3>
-                <p className="mt-2 text-sm text-[#4b2e2e]">Student & Explorer</p>
-                <p className="mt-4 text-3xl font-bold text-[#c5a880]">Free</p>
-                <ul className="mt-6 space-y-2 text-sm text-[#4b2e2e]">
-                  <li>✔ Core public database access</li>
-                  <li>✔ 10–15 AI searches/summaries per month</li>
-                  <li>✔ Watermarked downloads</li>
-                  <li>✔ Community forum support</li>
-                </ul>
-                <Link
-                  href="/contact"
-                  className="mt-8 block w-full bg-[#1f1d1b] text-white py-3 rounded-lg font-semibold hover:bg-[#4b2e2e] transition"
-                >
-                  Start Free
-                </Link>
-              </motion.div>
-
-              {/* Professional - Highlighted */}
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-                className="relative bg-[#1f1d1b] text-white p-8 rounded-xl shadow-lg border border-[#c5a880]"
-              >
-                <div className="absolute -top-4 right-4 bg-[#c5a880] text-white text-xs px-3 py-1 rounded-full shadow-md">
-                  Most Popular
-                </div>
-                <h3
-                  className="text-lg font-serif font-semibold"
-                  style={{ fontFamily: "Merriweather, serif" }}
-                >
-                  Professional
-                </h3>
-                <p className="mt-2 text-sm text-gray-300">Solo Practitioner</p>
-                <p className="mt-4 text-3xl font-bold text-[#c5a880]">₹1990/mo</p>
-                <p className="text-sm text-gray-400">or ₹19,990/year</p>
-                <ul className="mt-6 space-y-2 text-sm text-gray-200">
-                  <li>✔ Unlimited AI searches & summaries</li>
-                  <li>✔ Drafting features</li>
-                  <li>✔ Case management (limited active cases)</li>
-                  <li>✔ Priority email support</li>
-                </ul>
-                <Link
-                  href="/contact"
-                  className="mt-8 block w-full bg-[#c5a880] text-[#1f1d1b] py-3 rounded-lg font-semibold hover:opacity-90 transition"
-                >
-                  Try Professional
-                </Link>
-              </motion.div>
-
-              {/* Enterprise */}
-              <motion.div
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.3 }}
-                className="relative bg-[#ede9e4] p-8 rounded-xl shadow-md border border-[#d6d3d1]"
-              >
-                <h3
-                  className="text-lg font-serif font-semibold text-[#1f1d1b]"
-                  style={{ fontFamily: "Merriweather, serif" }}
-                >
-                  Enterprise
-                </h3>
-                <p className="mt-2 text-sm text-[#4b2e2e]">Law Firm & Corporate</p>
-                <p className="mt-4 text-3xl font-bold text-[#c5a880]">Custom</p>
-                <ul className="mt-6 space-y-2 text-sm text-[#4b2e2e]">
-                  <li>✔ All Pro features + workspaces</li>
-                  <li>✔ SSO & permissions</li>
-                  <li>✔ Onboarding & SLA</li>
-                  <li>✔ Private cloud/on-prem</li>
-                </ul>
-                <Link
-                  href="/contact"
-                  className="mt-8 block w-full border border-[#1f1d1b] text-[#1f1d1b] py-3 rounded-lg font-semibold hover:bg-[#1f1d1b] hover:text-white transition"
-                >
-                  Request Demo
-                </Link>
-              </motion.div>
+      
+      <div className="max-w-7xl mx-auto px-6 py-16">
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-serif font-bold text-[#1f1d1b] mb-6">
+            Choose Your Plan
+          </h1>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            Select the perfect plan for your legal practice. Start free and upgrade anytime.
+          </p>
+          
+          {session && (
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
+              <Check size={16} />
+              Signed in as {session.user?.name}
             </div>
-          </div>
-        </section>
-      </main>
+          )}
+        </div>
+
+        {/* Pricing Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {plans.map((plan, index) => (
+            <div
+              key={plan.name}
+              className={`relative bg-white rounded-2xl shadow-lg border-2 transition-all duration-300 hover:shadow-xl ${
+                plan.popular
+                  ? "border-[#D4AF37] scale-105"
+                  : "border-gray-200"
+              }`}
+            >
+              {plan.popular && (
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-[#D4AF37] text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center gap-2">
+                    <Star size={16} />
+                    Most Popular
+                  </span>
+                </div>
+              )}
+
+              <div className="p-8">
+                <div className="text-center mb-8">
+                  <h3 className="text-2xl font-serif font-bold text-[#1f1d1b] mb-2">
+                    {plan.name}
+                  </h3>
+                  <p className="text-gray-600 mb-6">{plan.description}</p>
+                  <div className="mb-6">
+                    <span className="text-5xl font-bold text-[#1f1d1b]">
+                      ${plan.price}
+                    </span>
+                    <span className="text-gray-600 ml-2">/{plan.period}</span>
+                  </div>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start gap-3">
+                      <Check 
+                        size={20} 
+                        className="mt-0.5 flex-shrink-0 text-[#D4AF37]" 
+                      />
+                      <span className="text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <button
+                  onClick={() => handlePlanClick(plan)}
+                  className={`w-full py-4 px-6 rounded-lg font-semibold transition ${
+                    plan.name === "Free" && session
+                      ? "bg-green-100 text-green-800 cursor-not-allowed"
+                      : plan.name === "Professional" && session
+                      ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                      : plan.popular
+                      ? "bg-[#1f1d1b] text-white hover:bg-[#4b2e2e]"
+                      : "bg-gray-100 text-gray-800 hover:bg-gray-200"
+                  }`}
+                  disabled={plan.name === "Free" && !!session || plan.name === "Professional" && !!session}
+                >
+                  <span className="flex items-center justify-center gap-2">
+                    {plan.cta}
+                    {plan.cta !== "Current Plan" && plan.cta !== "Coming Soon" && <ArrowRight size={16} />}
+                  </span>
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Additional Info */}
+        <div className="text-center">
+          <p className="text-gray-600 mb-4">
+            Need help choosing? <Link href="/contact" className="text-[#D4AF37] hover:underline">Contact our sales team</Link>
+          </p>
+          <p className="text-sm text-gray-500">
+            All plans include 30-day money-back guarantee • Cancel anytime • No setup fees
+          </p>
+        </div>
+      </div>
+
       <Footer />
     </div>
-  );
+  )
 }

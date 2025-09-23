@@ -15,6 +15,7 @@ export default withAuth(
           "/dashboard",
           "/profile",
           "/settings",
+          "/account",
           "/demo" // Add demo as protected if needed
         ]
         
@@ -40,6 +41,7 @@ export const config = {
     "/dashboard/:path*",
     "/profile/:path*", 
     "/settings/:path*",
+    "/account/:path*",
     "/demo/:path*"
   ]
 }

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { signIn, getSession } from "next-auth/react"
+import { signIn, getSession, useSession } from "next-auth/react"
 import { useRouter } from "next/router"
 import Link from "next/link"
 import Header from "../components/Header"
@@ -15,6 +15,7 @@ export default function Login() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const router = useRouter()
+  const { update } = useSession()
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target
@@ -40,7 +41,9 @@ export default function Login() {
       if (result?.error) {
         setError("Invalid email or password. Please try again.")
       } else if (result?.ok) {
-        router.push("/dashboard")
+        // Force session update and then redirect
+        await update()
+        router.push("/")
       }
     } catch (err) {
       setError("An error occurred during login. Please try again.")
@@ -54,7 +57,7 @@ export default function Login() {
     setError("")
     try {
       const result = await signIn("google", { 
-        callbackUrl: router.query.callbackUrl as string || "/dashboard" 
+        callbackUrl: router.query.callbackUrl as string || "/" 
       })
       if (result?.error) {
         setError("Failed to sign in with Google")

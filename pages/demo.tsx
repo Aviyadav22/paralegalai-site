@@ -22,7 +22,7 @@ export default function Demo() {
       const data = await response.json()
       setResult(data)
     } catch (error) {
-      console.error("Search error:", error)
+      // Handle error silently in production
     } finally {
       setLoading(false)
     }

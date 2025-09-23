@@ -12,17 +12,36 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const { name, email, organization, role, useCase, message, demoTime, number } = req.body;
 
-    // Compose email content
+    // Input validation
+    if (!name || !email || !message) {
+      return res.status(400).json({ error: "Name, email, and message are required" });
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ error: "Invalid email format" });
+    }
+
+    // Length validation
+    if (name.length > 100 || email.length > 100 || message.length > 2000) {
+      return res.status(400).json({ error: "Input too long" });
+    }
+
+    // Sanitize inputs
+    const sanitizeInput = (input: string) => input.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '').trim();
+
+    // Compose email content with sanitized inputs
     const emailHtml = `
       <h2>New Contact Request</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      ${number ? `<p><strong>Phone:</strong> ${number}</p>` : ""}
-      <p><strong>Organization:</strong> ${organization || "N/A"}</p>
-      <p><strong>Role:</strong> ${role || "N/A"}</p>
-      <p><strong>Use Case:</strong> ${useCase || "N/A"}</p>
-      <p><strong>Message:</strong> ${message || "N/A"}</p>
-      <p><strong>Preferred Demo Time:</strong> ${demoTime || "N/A"}</p>
+      <p><strong>Name:</strong> ${sanitizeInput(name)}</p>
+      <p><strong>Email:</strong> ${sanitizeInput(email)}</p>
+      ${number ? `<p><strong>Phone:</strong> ${sanitizeInput(number)}</p>` : ""}
+      <p><strong>Organization:</strong> ${organization ? sanitizeInput(organization) : "N/A"}</p>
+      <p><strong>Role:</strong> ${role ? sanitizeInput(role) : "N/A"}</p>
+      <p><strong>Use Case:</strong> ${useCase ? sanitizeInput(useCase) : "N/A"}</p>
+      <p><strong>Message:</strong> ${sanitizeInput(message)}</p>
+      <p><strong>Preferred Demo Time:</strong> ${demoTime ? sanitizeInput(demoTime) : "N/A"}</p>
     `;
 
     // ✅ sender & recipient from environment
