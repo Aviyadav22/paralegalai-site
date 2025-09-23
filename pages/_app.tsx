@@ -14,6 +14,16 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
         <meta property="og:image" content="/assets/og-image.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/assets/logo.svg" />
+        {/* Google Analytics */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GGS31EQG4K"></script>
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GGS31EQG4K');
+          `,
+        }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify({
           "@context":"https://schema.org",
           "@type":"Organization",
