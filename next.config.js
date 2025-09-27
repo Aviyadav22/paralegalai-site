@@ -7,6 +7,19 @@ const nextConfig = {
     domains: ['lh3.googleusercontent.com', 'avatars.githubusercontent.com'],
     formats: ['image/webp', 'image/avif'],
   },
+  // Exclude sensitive environment variables from client-side bundle
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Remove sensitive environment variables from client bundle
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+      };
+    }
+    return config;
+  },
   async headers() {
     return [
       {

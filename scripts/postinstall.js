@@ -12,13 +12,14 @@ try {
   if (isNetlify || isVercel) {
     console.log('🌐 Detected deployment environment, generating Prisma client...');
     
-    // Set environment variables for Prisma
-    if (isNetlify) {
-      process.env.PRISMA_QUERY_ENGINE_LIBRARY = 'libquery_engine-debian-openssl-3.0.x.so.node';
-    }
-    
     try {
-      execSync('npx prisma generate', { stdio: 'inherit' });
+      execSync('npx prisma generate', { 
+        stdio: 'inherit',
+        env: {
+          ...process.env,
+          PRISMA_CLI_BINARY_TARGETS: 'debian-openssl-3.0.x'
+        }
+      });
       console.log('✅ Prisma client generated successfully');
     } catch (error) {
       console.log('⚠️  Prisma generation failed, but continuing...');

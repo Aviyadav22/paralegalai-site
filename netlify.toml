@@ -5,6 +5,7 @@
 [build.environment]
   NODE_VERSION = "18"
   NPM_VERSION = "9"
+  PRISMA_CLI_BINARY_TARGETS = "debian-openssl-3.0.x"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
