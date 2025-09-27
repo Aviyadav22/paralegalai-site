@@ -33,9 +33,15 @@ try {
   console.log('🚀 Running Next.js build...');
   execSync('next build', { stdio: 'inherit' });
   
-  // Clean build output of sensitive data
-  console.log('🧹 Cleaning build output...');
-  execSync('node scripts/clean-build.js', { stdio: 'inherit' });
+  // Clean build output of sensitive data (only on Netlify)
+  if (isNetlify) {
+    console.log('🧹 Cleaning build output...');
+    try {
+      execSync('node scripts/clean-build.js', { stdio: 'inherit' });
+    } catch (error) {
+      console.log('⚠️  Build cleaning failed, but continuing...');
+    }
+  }
   
   console.log('✅ Build completed successfully!');
   

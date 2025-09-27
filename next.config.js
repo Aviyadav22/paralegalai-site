@@ -10,27 +10,14 @@ const nextConfig = {
   // Exclude sensitive environment variables from client-side bundle
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      // Remove sensitive environment variables from client bundle
-      config.resolve.fallback = {
-        ...config.resolve.fallback,
-        fs: false,
-        net: false,
-        tls: false,
-      };
-      
-      // Define plugin to replace environment variables with empty strings in client bundle
+      // Define plugin to replace only sensitive environment variables with empty strings in client bundle
       config.plugins.push(
         new (require('webpack')).DefinePlugin({
-          'process.env.NEXTAUTH_URL': '""',
           'process.env.NEXTAUTH_SECRET': '""',
           'process.env.DATABASE_URL': '""',
-          'process.env.GOOGLE_CLIENT_ID': '""',
           'process.env.GOOGLE_CLIENT_SECRET': '""',
           'process.env.RESEND_API_KEY': '""',
-          'process.env.RESEND_FROM': '""',
-          'process.env.CONTACT_RECEIVER': '""',
           'process.env.SHARED_JWT_SECRET': '""',
-          'process.env.PRISMA_CLI_BINARY_TARGETS': '""',
         })
       );
     }
