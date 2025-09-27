@@ -7,22 +7,6 @@ const nextConfig = {
     domains: ['lh3.googleusercontent.com', 'avatars.githubusercontent.com'],
     formats: ['image/webp', 'image/avif'],
   },
-  // Exclude sensitive environment variables from client-side bundle
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      // Define plugin to replace only sensitive environment variables with empty strings in client bundle
-      config.plugins.push(
-        new (require('webpack')).DefinePlugin({
-          'process.env.NEXTAUTH_SECRET': '""',
-          'process.env.DATABASE_URL': '""',
-          'process.env.GOOGLE_CLIENT_SECRET': '""',
-          'process.env.RESEND_API_KEY': '""',
-          'process.env.SHARED_JWT_SECRET': '""',
-        })
-      );
-    }
-    return config;
-  },
   async headers() {
     return [
       {
