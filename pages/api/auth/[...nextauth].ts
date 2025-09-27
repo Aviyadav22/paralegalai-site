@@ -8,6 +8,7 @@ import bcrypt from "bcryptjs"
 const prisma = new PrismaClient()
 
 export const authOptions: NextAuthOptions = {
+  debug: process.env.NODE_ENV === 'development',
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -71,6 +72,15 @@ export const authOptions: NextAuthOptions = {
       return token
     },
     async signIn({ user, account, profile }) {
+      // Log only in development
+      if (process.env.NODE_ENV === 'development') {
+        console.log("SignIn callback triggered:", { 
+          provider: account?.provider, 
+          email: user.email,
+          name: user.name 
+        })
+      }
+      
       if (account?.provider === "google") {
         try {
           // Check if user exists in database

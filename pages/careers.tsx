@@ -53,7 +53,7 @@ export default function Careers() {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-[#1f1d1b] to-[#4b2e2e] text-white">
+      <section className="pt-24 pb-20 bg-gradient-to-br from-[#1f1d1b] to-[#4b2e2e] text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">
             Careers at Paralegal AI

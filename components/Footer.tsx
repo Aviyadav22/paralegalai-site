@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Linkedin, Twitter, Github } from "lucide-react";
+import { Linkedin, Youtube } from "lucide-react";
 
 export default function Footer() {
   return (
     <footer className="bg-[#f8f5f0] border-t border-[#d6d3d1] mt-20">
-      <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-5 gap-10">
         {/* Logo + Tagline */}
         <div>
           <Link href="/" className="flex items-center gap-2">
@@ -60,7 +60,9 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/demo"
+                href="https://www.youtube.com/@AviYadav2002"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative text-[#1f1d1b] font-medium transition"
               >
                 Demo
@@ -117,10 +119,48 @@ export default function Footer() {
             </li>
             <li>
               <Link
-                href="/demo"
+                href="https://www.youtube.com/@AviYadav2002"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group relative text-[#1f1d1b] font-medium transition"
               >
                 Demo
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Socials */}
+        <div>
+          <h4
+            className="text-lg font-serif font-semibold text-[#1f1d1b] mb-4"
+            style={{ fontFamily: "Merriweather, serif" }}
+          >
+            Socials
+          </h4>
+          <ul className="space-y-2">
+            <li>
+              <Link
+                href="https://www.linkedin.com/company/paralegalai-legalresearch"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative text-[#1f1d1b] font-medium transition flex items-center gap-2"
+              >
+                <Linkedin size={16} />
+                LinkedIn
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="https://youtube.com/@paralegalai.official?si=6jF_ge6gu0trD9AN"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative text-[#1f1d1b] font-medium transition flex items-center gap-2"
+              >
+                <Youtube size={16} />
+                YouTube
                 <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#c5a880] transition-all duration-300 group-hover:w-full"></span>
               </Link>
             </li>
@@ -155,32 +195,10 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Social + Copyright */}
-      <div className="border-t border-[#d6d3d1] mt-8">
-        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex gap-6">
-            <Link
-              href="https://www.linkedin.com/company/paralegalai-legalresearch"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#1f1d1b] hover:text-[#4b2e2e] transition"
-            >
-              <Linkedin size={20} />
-            </Link>
-            <Link
-              href="https://twitter.com"
-              className="text-[#1f1d1b] hover:text-[#4b2e2e] transition"
-            >
-              <Twitter size={20} />
-            </Link>
-            <Link
-              href="https://github.com"
-              className="text-[#1f1d1b] hover:text-[#4b2e2e] transition"
-            >
-              <Github size={20} />
-            </Link>
-          </div>
 
+      {/* Copyright */}
+      <div className="border-t border-[#d6d3d1]">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex justify-center">
           <p className="text-sm text-[#4b2e2e]">
             © {new Date().getFullYear()} Paralegal AI. All rights reserved.
           </p>

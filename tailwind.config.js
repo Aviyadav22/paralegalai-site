@@ -11,6 +11,10 @@ module.exports = {
         accent: "#1FA2A6",
         neutralbg: "#F8FAFC",
       },
+      fontFamily: {
+        'serif': ['Merriweather', 'serif'],
+        'sans': ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+      },
     },
   },
   plugins: [],

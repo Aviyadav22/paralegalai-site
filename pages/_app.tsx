@@ -20,14 +20,16 @@ export default function App({ Component, pageProps: { session, ...pageProps } }:
         <meta name="twitter:description" content="AI-powered legal research and drafting for Indian law professionals" />
         <meta name="twitter:image" content="https://paralegalai.xyz/assets/og-image.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/assets/logo.svg" />
+        <link rel="icon" href="/icon.png" />
+        <link rel="icon" type="image/png" href="/icon.png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
         <link rel="canonical" href="https://paralegalai.xyz" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify({
           "@context":"https://schema.org",
           "@type":"Organization",
           "name":"Paralegal AI",
           "url":"https://paralegalai.xyz",
-          "logo":"https://paralegalai.xyz/assets/logo.svg",
+          "logo":"https://paralegalai.xyz/logo.png",
           "description":"AI-powered legal research and drafting platform for Indian law professionals",
           "sameAs":["https://www.linkedin.com/company/paralegalai"]
         })}} />

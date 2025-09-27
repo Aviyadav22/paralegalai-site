@@ -35,7 +35,7 @@ export default function About() {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-[#1f1d1b] to-[#4b2e2e] text-white">
+      <section className="pt-24 pb-20 bg-gradient-to-br from-[#1f1d1b] to-[#4b2e2e] text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">
             About Paralegal AI
@@ -222,7 +222,9 @@ export default function About() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/demo"
+              href="https://www.youtube.com/@AviYadav2002"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white text-[#1f1d1b] px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition"
             >
               Try Our Demo

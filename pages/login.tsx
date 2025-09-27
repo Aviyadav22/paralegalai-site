@@ -43,7 +43,18 @@ export default function Login() {
       } else if (result?.ok) {
         // Force session update and then redirect
         await update()
-        router.push("/")
+        
+        // Check for redirect parameter
+        const redirectUrl = router.query.redirect as string
+        if (redirectUrl) {
+          // If redirect URL is provided, open it in a new tab
+          window.open(redirectUrl, '_blank')
+          // Also redirect to home page in current tab
+          router.push("/")
+        } else {
+          // Default behavior: redirect to home page
+          router.push("/")
+        }
       }
     } catch (err) {
       setError("An error occurred during login. Please try again.")
@@ -56,8 +67,14 @@ export default function Login() {
     setLoading(true)
     setError("")
     try {
+      // Check for redirect parameter
+      const redirectUrl = router.query.redirect as string
+      const callbackUrl = redirectUrl 
+        ? `/redirect?url=${encodeURIComponent(redirectUrl)}`
+        : "/"
+      
       const result = await signIn("google", { 
-        callbackUrl: router.query.callbackUrl as string || "/" 
+        callbackUrl: callbackUrl
       })
       if (result?.error) {
         setError("Failed to sign in with Google")
@@ -73,7 +90,7 @@ export default function Login() {
     <div className="min-h-screen bg-[#f8f5f0]">
       <Header />
       
-      <div className="flex min-h-screen">
+      <div className="flex min-h-screen pt-16">
         {/* Left Side - Branding */}
         <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#1f1d1b] to-[#4b2e2e] text-white items-center justify-center">
           <div className="max-w-md text-center">
@@ -211,9 +228,9 @@ export default function Login() {
                   </div>
 
                   <div className="text-sm">
-                    <a href="#" className="font-medium text-[#D4AF37] hover:text-[#B8941F]">
+                    <Link href="/auth/reset-password" className="font-medium text-[#D4AF37] hover:text-[#B8941F]">
                       Forgot password? Reset
-                    </a>
+                    </Link>
                   </div>
                 </div>
 

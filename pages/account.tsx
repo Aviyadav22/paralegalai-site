@@ -4,6 +4,7 @@ import { authOptions } from "./api/auth/[...nextauth]"
 import { useSession } from "next-auth/react"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
+import Image from "next/image"
 import { 
   User, 
   Mail, 
@@ -60,7 +61,7 @@ export default function Account({ user }: AccountPageProps) {
     <div className="min-h-screen bg-[#f8f5f0]">
       <Header />
       
-      <div className="max-w-7xl mx-auto px-6 py-8">
+      <div className="max-w-7xl mx-auto px-6 pt-24 pb-8">
         <div className="mb-8">
           <h1 className="text-3xl font-serif font-bold text-[#1f1d1b] mb-2">
             Account Settings
@@ -118,9 +119,11 @@ export default function Account({ user }: AccountPageProps) {
                     <div className="flex items-center gap-6">
                       <div className="w-20 h-20 bg-[#c5a880] rounded-full flex items-center justify-center">
                         {session?.user?.image ? (
-                          <img
+                          <Image
                             src={session.user.image}
                             alt={session.user.name || "User"}
+                            width={80}
+                            height={80}
                             className="w-20 h-20 rounded-full object-cover"
                           />
                         ) : (
@@ -325,7 +328,7 @@ export default function Account({ user }: AccountPageProps) {
                           </ul>
                         </div>
                         <div className="text-right">
-                          <p className="text-3xl font-bold text-green-800">$0</p>
+                          <p className="text-3xl font-bold text-green-800">₹0</p>
                           <p className="text-green-600">per month</p>
                         </div>
                       </div>
@@ -341,7 +344,7 @@ export default function Account({ user }: AccountPageProps) {
                           For individual lawyers and small firms
                         </p>
                         <div className="mb-4">
-                          <span className="text-3xl font-bold text-[#1f1d1b]">$29</span>
+                          <span className="text-3xl font-bold text-[#1f1d1b]">₹3,800</span>
                           <span className="text-gray-600">/month</span>
                         </div>
                         <ul className="text-sm text-gray-700 space-y-1 mb-6">
@@ -366,8 +369,7 @@ export default function Account({ user }: AccountPageProps) {
                           For large law firms and organizations
                         </p>
                         <div className="mb-4">
-                          <span className="text-3xl font-bold text-[#1f1d1b]">$99</span>
-                          <span className="text-gray-600">/month</span>
+                          <span className="text-2xl font-bold text-[#1f1d1b]">Contact Us</span>
                         </div>
                         <ul className="text-sm text-gray-700 space-y-1 mb-6">
                           <li>• Unlimited document analyses</li>

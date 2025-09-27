@@ -5,7 +5,7 @@ export default function Tech(){
   return (
     <div>
       <Header />
-      <main className="max-w-6xl mx-auto px-4 py-12">
+      <main className="max-w-6xl mx-auto px-4 pt-24 pb-12">
         <h1 className="text-2xl font-semibold">Augmentation, not automation</h1>
         <p className="mt-4 text-gray-700">Paralegal AI is designed to enhance legal professionals, not replace them. While rote tasks can be automated, legal strategy, client counselling and ethical judgment remain human work. Lawyers who leverage AI will outpace those who do not.</p>
 

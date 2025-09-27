@@ -2,6 +2,7 @@ import Header from "../components/Header"
 import Footer from "../components/Footer"
 import Link from "next/link"
 import { useSession } from "next-auth/react"
+import { useState, useEffect } from "react"
 import { 
   Check, 
   Star,
@@ -12,13 +13,18 @@ import {
 } from "lucide-react"
 
 export default function Pricing() {
+  const [isClient, setIsClient] = useState(false)
   const { data: session, status } = useSession()
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
   const plans = [
     {
       name: "Free",
       price: 0,
       period: "month",
-      description: "Perfect for getting started",
+      description: "Perfect for students and individual practitioners",
       features: [
         "10 document analyses per month",
         "Basic legal research tools",
@@ -32,16 +38,17 @@ export default function Pricing() {
     },
     {
       name: "Professional",
-      price: 29,
+      price: 3800,
       period: "month",
-      description: "For individual lawyers and small firms",
+      currency: "₹",
+      description: "For growing law firms and busy practitioners",
       features: [
         "100 document analyses per month",
         "Advanced AI research tools",
         "Priority support",
-        "Custom templates",
-        "API access",
-        "Advanced analytics"
+        "Advanced Drafting",
+        "Custom templates"
+        
       ],
       current: false,
       cta: session ? "Coming Soon" : "Sign In to Upgrade",
@@ -50,14 +57,15 @@ export default function Pricing() {
     },
     {
       name: "Enterprise",
-      price: 99,
-      period: "month",
-      description: "For large law firms and organizations",
+      price: null,
+      period: "",
+      currency: "",
+      description: "For enterprise law firms and legal departments",
       features: [
         "Unlimited document analyses",
         "Custom AI models",
         "24/7 dedicated support",
-        "White-label options",
+        "Local server deployment",
         "Custom integrations",
         "Advanced security"
       ],
@@ -88,16 +96,16 @@ export default function Pricing() {
     <div className="min-h-screen bg-[#f8f5f0]">
       <Header />
       
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      <div className="max-w-7xl mx-auto px-6 pt-24 pb-16">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-serif font-bold text-[#1f1d1b] mb-6">
             Choose Your Plan
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Select the perfect plan for your legal practice. Start free and upgrade anytime.
+            Choose the perfect plan for your legal practice. Start with our free tier and upgrade anytime as your needs grow.
           </p>
           
-          {session && (
+          {isClient && session && (
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
               <Check size={16} />
               Signed in as {session.user?.name}
@@ -132,10 +140,18 @@ export default function Pricing() {
                   </h3>
                   <p className="text-gray-600 mb-6">{plan.description}</p>
                   <div className="mb-6">
-                    <span className="text-5xl font-bold text-[#1f1d1b]">
-                      ${plan.price}
-                    </span>
-                    <span className="text-gray-600 ml-2">/{plan.period}</span>
+                    {plan.price !== null ? (
+                      <>
+                        <span className="text-5xl font-bold text-[#1f1d1b]">
+                          {plan.currency}{plan.price}
+                        </span>
+                        <span className="text-gray-600 ml-2">/{plan.period}</span>
+                      </>
+                    ) : (
+                      <span className="text-3xl font-bold text-[#1f1d1b]">
+                        Contact Us
+                      </span>
+                    )}
                   </div>
                 </div>
 
@@ -180,7 +196,7 @@ export default function Pricing() {
             Need help choosing? <Link href="/contact" className="text-[#D4AF37] hover:underline">Contact our sales team</Link>
           </p>
           <p className="text-sm text-gray-500">
-            All plans include 30-day money-back guarantee • Cancel anytime • No setup fees
+          • No setup fees
           </p>
         </div>
       </div>

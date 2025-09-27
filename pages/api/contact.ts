@@ -4,9 +4,37 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Simple in-memory rate limiting (in production, use Redis)
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
+const RATE_LIMIT_MAX_REQUESTS = 5; // 5 requests per window
+
+function rateLimit(ip: string): boolean {
+  const now = Date.now();
+  const userLimit = rateLimitMap.get(ip);
+  
+  if (!userLimit || now > userLimit.resetTime) {
+    rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_LIMIT_WINDOW });
+    return true;
+  }
+  
+  if (userLimit.count >= RATE_LIMIT_MAX_REQUESTS) {
+    return false;
+  }
+  
+  userLimit.count++;
+  return true;
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  // Rate limiting
+  const clientIP = req.headers['x-forwarded-for'] as string || req.connection.remoteAddress || 'unknown';
+  if (!rateLimit(clientIP)) {
+    return res.status(429).json({ error: "Too many requests. Please try again later." });
   }
 
   try {

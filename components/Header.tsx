@@ -13,7 +13,13 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [isClient, setIsClient] = useState(false);
   const { data: session, status, update } = useSession();
+
+  // Set client-side flag after hydration
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Force session update on component mount
   useEffect(() => {
@@ -24,6 +30,8 @@ export default function Header() {
 
   // Scroll detection for header hide/show
   useEffect(() => {
+    if (!isClient) return;
+    
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
@@ -44,7 +52,7 @@ export default function Header() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
+  }, [lastScrollY, isClient]);
 
   const handleSignOut = async () => {
     await signOut({ callbackUrl: "/" });
@@ -146,7 +154,9 @@ export default function Header() {
 
         {/* Desktop CTA - Right */}
         <div className="hidden md:flex items-center">
-          {status === "loading" ? (
+          {!isClient ? (
+            <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+          ) : status === "loading" ? (
             <div className="w-8 h-8 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
           ) : session ? (
             <div className="relative">
@@ -283,7 +293,11 @@ export default function Header() {
                 FAQ
               </Link>
               <hr className="border-[#d6d3d1]" />
-              {status === "loading" ? (
+              {!isClient ? (
+                <div className="flex justify-center py-2">
+                  <div className="w-6 h-6 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+                </div>
+              ) : status === "loading" ? (
                 <div className="flex justify-center py-2">
                   <div className="w-6 h-6 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
                 </div>

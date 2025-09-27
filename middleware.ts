@@ -15,8 +15,7 @@ export default withAuth(
           "/dashboard",
           "/profile",
           "/settings",
-          "/account",
-          "/demo" // Add demo as protected if needed
+          "/account"
         ]
         
         // Check if the current path is protected
@@ -41,7 +40,6 @@ export const config = {
     "/dashboard/:path*",
     "/profile/:path*", 
     "/settings/:path*",
-    "/account/:path*",
-    "/demo/:path*"
+    "/account/:path*"
   ]
 }

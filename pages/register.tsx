@@ -104,7 +104,7 @@ export default function Register() {
     <div className="min-h-screen bg-[#f8f5f0]">
       <Header />
       
-      <div className="flex min-h-screen">
+      <div className="flex min-h-screen pt-16">
         {/* Left Side - Branding */}
         <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#1f1d1b] to-[#4b2e2e] text-white items-center justify-center">
           <div className="max-w-md text-center">
