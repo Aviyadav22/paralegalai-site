@@ -26,7 +26,7 @@ export default function TermsOfService() {
                 <strong>Important Notice:</strong>
               </p>
               <p className="text-[#6b7280] text-sm">
-                These Terms of Service ("Terms") govern your use of Paralegal AI's AI-powered legal research 
+                These Terms of Service (&quot;Terms&quot;) govern your use of Paralegal AI&apos;s AI-powered legal research 
                 and drafting platform. By accessing or using our services, you agree to be bound by these Terms. 
                 Please read them carefully before using our platform.
               </p>
@@ -39,7 +39,7 @@ export default function TermsOfService() {
               
               <h3 className="text-xl font-semibold text-[#1f1d1b] mb-4">1.1 Agreement to Terms</h3>
               <p className="text-[#6b7280] mb-4">
-                By accessing, browsing, or using Paralegal AI ("Platform," "Service," or "we"), you acknowledge 
+                By accessing, browsing, or using Paralegal AI (&quot;Platform,&quot; &quot;Service,&quot; or &quot;we&quot;), you acknowledge 
                 that you have read, understood, and agree to be bound by these Terms of Service and our Privacy Policy. 
                 If you do not agree to these Terms, you may not access or use our Platform.
               </p>
@@ -270,7 +270,7 @@ export default function TermsOfService() {
               
               <h3 className="text-xl font-semibold text-[#1f1d1b] mb-4">8.1 Service Disclaimers</h3>
               <p className="text-[#6b7280] mb-4">
-                Our Platform and services are provided "as is" and "as available" without warranties of any kind. 
+                Our Platform and services are provided &quot;as is&quot; and &quot;as available&quot; without warranties of any kind. 
                 We disclaim all warranties, express or implied, including but not limited to:
               </p>
               <ul className="list-disc list-inside text-[#6b7280] mb-6 space-y-3 ml-4">
@@ -307,7 +307,7 @@ export default function TermsOfService() {
               <p className="text-[#6b7280] mb-4">
                 You agree to indemnify, defend, and hold harmless Paralegal AI and its officers, directors, 
                 employees, and agents from and against any claims, damages, losses, costs, and expenses 
-                (including reasonable attorneys' fees) arising from:
+                (including reasonable attorneys&apos; fees) arising from:
               </p>
               <ul className="list-disc list-inside text-[#6b7280] mb-6 space-y-3 ml-4">
                 <li>Your use of the Platform in violation of these Terms</li>
@@ -428,7 +428,7 @@ export default function TermsOfService() {
               </p>
               <p className="text-[#6b7280] text-sm">
                 Our legal team is available to answer any questions you may have about these Terms of Service. 
-                We're committed to transparency and ensuring you understand your rights and obligations when using our Platform.
+                We&apos;re committed to transparency and ensuring you understand your rights and obligations when using our Platform.
               </p>
             </div>
           </div>

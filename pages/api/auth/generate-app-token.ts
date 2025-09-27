@@ -27,9 +27,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         email: true,
         name: true,
         role: true,
-        // Add your custom fields here
-        plan: true,
-        usage: true,
         createdAt: true
       }
     })
@@ -45,8 +42,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         email: user.email,
         name: user.name,
         role: user.role,
-        plan: user.plan,
-        usage: user.usage,
         iat: Math.floor(Date.now() / 1000),
         exp: Math.floor(Date.now() / 1000) + (60 * 60) // 1 hour expiry
       },

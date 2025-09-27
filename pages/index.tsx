@@ -183,7 +183,7 @@ export default function Home() {
           Smarter Legal Research
         </h3>
         <p className="text-lg text-[#4b2e2e] leading-relaxed">
-          Paralegal AI transforms the way lawyers find case laws and judgments. Instead of spending hours scanning through volumes of precedents, our AI delivers precise, context-aware results in seconds. Whether you're preparing for court or advising a client, your research becomes faster, sharper, and more reliable.
+          Paralegal AI transforms the way lawyers find case laws and judgments. Instead of spending hours scanning through volumes of precedents, our AI delivers precise, context-aware results in seconds. Whether you&apos;re preparing for court or advising a client, your research becomes faster, sharper, and more reliable.
         </p>
       </div>
     </motion.div>

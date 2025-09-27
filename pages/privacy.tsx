@@ -26,7 +26,7 @@ export default function PrivacyPolicy() {
                 <strong>Important Notice:</strong>
               </p>
               <p className="text-[#6b7280] text-sm">
-                This Privacy Policy describes how Paralegal AI ("we," "our," or "us") collects, uses, 
+                This Privacy Policy describes how Paralegal AI (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) collects, uses, 
                 and protects your personal information when you use our AI-powered legal research platform. 
                 By using our services, you consent to the data practices described in this policy.
               </p>
@@ -179,7 +179,7 @@ export default function PrivacyPolicy() {
                 California residents have specific rights under the California Consumer Privacy Act:
               </p>
               <ul className="list-disc list-inside text-[#6b7280] mb-6 space-y-3 ml-4">
-                <li>Right to know what personal information is collected and how it's used</li>
+                <li>Right to know what personal information is collected and how it&apos;s used</li>
                 <li>Right to delete personal information (with certain exceptions)</li>
                 <li>Right to opt-out of the sale of personal information</li>
                 <li>Right to non-discrimination for exercising privacy rights</li>
@@ -269,7 +269,7 @@ export default function PrivacyPolicy() {
 
             <section className="mb-10">
               <h2 className="text-2xl font-serif font-bold text-[#1f1d1b] mb-6 border-b border-[#e5e7eb] pb-2">
-                8. Children's Privacy
+                8. Children&apos;s Privacy
               </h2>
               <p className="text-[#6b7280] mb-6">
                 Our services are not intended for individuals under 18 years of age. We do not knowingly collect 
@@ -324,8 +324,8 @@ export default function PrivacyPolicy() {
                 <strong>Questions About This Policy?</strong>
               </p>
               <p className="text-[#6b7280] text-sm">
-                If you have any questions about this Privacy Policy or our data practices, please don't hesitate 
-                to contact us. We're committed to transparency and will respond to all inquiries promptly.
+                If you have any questions about this Privacy Policy or our data practices, please don&apos;t hesitate 
+                to contact us. We&apos;re committed to transparency and will respond to all inquiries promptly.
               </p>
             </div>
           </div>

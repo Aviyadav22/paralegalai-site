@@ -82,7 +82,7 @@ export default function ContactPage() {
                 Get in Touch
               </h1>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-                Ready to transform your legal practice? Let's discuss how Paralegal AI can streamline your research and drafting workflow.
+                Ready to transform your legal practice? Let&apos;s discuss how Paralegal AI can streamline your research and drafting workflow.
               </p>
             </motion.div>
 
@@ -304,7 +304,7 @@ export default function ContactPage() {
                       Thank You!
                     </h3>
                     <p className="text-gray-600 text-lg">
-                      Your demo request has been received. We'll be in touch within 24 hours to schedule your personalized demonstration.
+                      Your demo request has been received. We&apos;ll be in touch within 24 hours to schedule your personalized demonstration.
                     </p>
                   </motion.div>
                 )}
