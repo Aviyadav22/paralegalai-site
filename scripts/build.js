@@ -33,6 +33,10 @@ try {
   console.log('🚀 Running Next.js build...');
   execSync('next build', { stdio: 'inherit' });
   
+  // Clean build output of sensitive data
+  console.log('🧹 Cleaning build output...');
+  execSync('node scripts/clean-build.js', { stdio: 'inherit' });
+  
   console.log('✅ Build completed successfully!');
   
 } catch (error) {

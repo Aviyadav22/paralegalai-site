@@ -3,10 +3,18 @@
 .env.local
 .env.production
 .env.development
+.env.*.local
 
 # Build cache
 .next/cache
 .netlify
+.next/cache/webpack
+
+# Sensitive files
+*.key
+*.pem
+*.p12
+*.pfx
 
 # Logs
 *.log
